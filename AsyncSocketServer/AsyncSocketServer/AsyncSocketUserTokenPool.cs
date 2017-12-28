@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsyncSocketServer
 {
-    class AsyncSocketUserTokenPool
+    public class AsyncSocketUserTokenPool
     {
         private Stack<AsyncSocketUserToken> m_pool;
 
@@ -41,7 +41,7 @@ namespace AsyncSocketServer
         }
     }
 
-    class AsyncSocketUserTokenList
+    public class AsyncSocketUserTokenList
     {
         private List<AsyncSocketUserToken> m_list;
 
