@@ -45,13 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncSendBufferManager.cs" />
-    <Compile Include="AsyncSocketInvokeElement.cs" />
-    <Compile Include="AsyncSocketServer.cs" />
-    <Compile Include="AsyncSocketUserToken.cs" />
-    <Compile Include="AsyncSocketUserTokenPool.cs" />
-    <Compile Include="BaseSocketProtocol.cs" />
-    <Compile Include="DynamicBufferManager.cs" />
+    <Compile Include="AsyncSocketCore\AsyncSendBufferManager.cs" />
+    <Compile Include="AsyncSocketCore\AsyncSocketInvokeElement.cs" />
+    <Compile Include="AsyncSocketCore\AsyncSocketServer.cs" />
+    <Compile Include="AsyncSocketCore\AsyncSocketUserToken.cs" />
+    <Compile Include="AsyncSocketCore\AsyncSocketUserTokenPool.cs" />
+    <Compile Include="AsyncSocketCore\BaseSocketProtocol.cs" />
+    <Compile Include="AsyncSocketCore\DynamicBufferManager.cs" />
+    <Compile Include="AsyncSocketCore\IncomingDataParser.cs" />
+    <Compile Include="AsyncSocketCore\OutgoingDataAssembler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocolKey.cs" />

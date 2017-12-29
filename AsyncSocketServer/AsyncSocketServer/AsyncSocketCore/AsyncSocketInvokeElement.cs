@@ -24,6 +24,9 @@ namespace AsyncSocketServer
 
         private bool m_sendAsync;
 
+        protected IncomingDataParser m_incomingDataParser;
+        protected OutgoingDataAssembler m_outgoingDataAssembler;
+
         protected DateTime m_connectDateTime;
         public DateTime ConnectDateTime
         {
@@ -42,6 +45,9 @@ namespace AsyncSocketServer
         {
             m_asyncSocketServer = asyncSocketServer;
             m_asyncSocketUserToken = asyncSocketUserToken;
+
+            m_incomingDataParser = new IncomingDataParser();
+            m_outgoingDataAssembler = new OutgoingDataAssembler();
 
             m_connectDateTime = DateTime.UtcNow;
             m_activeDateTime = DateTime.UtcNow;
@@ -88,6 +94,8 @@ namespace AsyncSocketServer
             int commandLength = BitConverter.ToInt32(buffer, offset);
             string commandStr = Encoding.UTF8.GetString(buffer, offset + sizeof(int), commandLength);
             //解析命令
+            if (!m_incomingDataParser.DecodeProtocolText(commandStr))
+                return false;
 
             return ProcessCommand(buffer, offset + sizeof(int) + commandLength, count - sizeof(int) - commandLength);
         }
@@ -122,6 +130,59 @@ namespace AsyncSocketServer
         public virtual bool SendCallback()
         {
             return true;
+        }
+
+        //写入Command
+        public bool DoSendResult()
+        {
+            string commandText = m_outgoingDataAssembler.GetProtocolText();
+            byte[] buffer = Encoding.UTF8.GetBytes(commandText);
+            int totalLength = sizeof(int) + buffer.Length;
+            AsyncSendBufferManager asyncSendBufferManager = m_asyncSocketUserToken.SendBuffer;
+            asyncSendBufferManager.StartPacket();
+            asyncSendBufferManager.DynamicBufferManager.WriteInt(totalLength, false); //写入总大小
+            asyncSendBufferManager.DynamicBufferManager.WriteInt(buffer.Length, false); //写入命令大小
+            asyncSendBufferManager.DynamicBufferManager.WriteBuffer(buffer); //写入命令内容
+            asyncSendBufferManager.EndPacket();
+
+            bool result = true;
+            if (!m_sendAsync)
+            {
+                int sendOffset = 0;
+                int sendCount = 0;
+                if (asyncSendBufferManager.GetFirstPacket(ref sendOffset, ref sendCount))
+                {
+                    m_sendAsync = true;
+                    result = m_asyncSocketServer.SendAsyncEvent(m_asyncSocketUserToken.ConnectSocket, m_asyncSocketUserToken.SendEventArgs,
+                        asyncSendBufferManager.DynamicBufferManager.Buffer, sendOffset, sendCount);
+                }
+            }
+            return result;
+        }
+
+        //写入Command和二进制数据
+        public bool DoSendResult(byte[] buffer, int offset, int count)
+        {
+            string commandText = m_outgoingDataAssembler.GetProtocolText();
+            byte[] sendBuffer = Encoding.UTF8.GetBytes(commandText);
+            int totalLength = sizeof(int) + sendBuffer.Length + buffer.Length;
+            AsyncSendBufferManager asyncSendBufferManager = m_asyncSocketUserToken.SendBuffer;
+            asyncSendBufferManager.StartPacket();
+            asyncSendBufferManager.DynamicBufferManager.WriteInt(totalLength, false); //写入总大小
+            asyncSendBufferManager.DynamicBufferManager.WriteInt(sendBuffer.Length, false); //写入command命令大小
+            asyncSendBufferManager.DynamicBufferManager.WriteBuffer(sendBuffer); //写入命令内容
+            asyncSendBufferManager.DynamicBufferManager.WriteBuffer(buffer); //写入二进制内容
+            asyncSendBufferManager.EndPacket();
+
+            bool result = true;
+            if (!m_sendAsync)
+            {
+                int sendOffset = 0;
+                int sendCount = 0;
+                result = m_asyncSocketServer.SendAsyncEvent(m_asyncSocketUserToken.ConnectSocket, m_asyncSocketUserToken.SendEventArgs,
+                    asyncSendBufferManager.DynamicBufferManager.Buffer, sendOffset, sendCount);
+            }
+            return result;
         }
 
         public virtual void Close()

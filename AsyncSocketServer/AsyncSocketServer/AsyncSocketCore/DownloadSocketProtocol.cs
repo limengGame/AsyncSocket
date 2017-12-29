@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AsyncSocketServer
 {
-    public class BaseSocketProtocol : AsyncSocketInvokeElement
+    public class DownloadSocketProtocol : BaseSocketProtocol
     {
 
-        public BaseSocketProtocol(AsyncSocketServer asyncSocketServer, AsyncSocketUserToken asyncSocketUserToken)
+
+        public DownloadSocketProtocol(AsyncSocketServer asyncSocketServer, AsyncSocketUserToken asyncSocketUserToken)
             : base(asyncSocketServer, asyncSocketUserToken)
         {
 
         }
-
 
     }
 }
