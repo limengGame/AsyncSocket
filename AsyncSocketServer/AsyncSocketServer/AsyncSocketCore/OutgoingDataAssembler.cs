@@ -15,6 +15,11 @@ namespace AsyncSocketServer
             m_protocolText = new List<string>();
         }
 
+        public void Clear()
+        {
+            m_protocolText.Clear();
+        }
+
         public string GetProtocolText()
         {
             string tempStr = "";

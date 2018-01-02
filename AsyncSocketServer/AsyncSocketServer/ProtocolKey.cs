@@ -97,4 +97,29 @@ namespace AsyncSocketServer
         }
     }
 
+    public enum DownloadSocketCommand
+    {
+        None = 0,
+        Login = 1,
+        Active = 2,
+        Dir = 3,
+        FileList = 4,
+        Download = 5,
+    }
+
+    public enum UploadSocketCommand
+    {
+        None = 0,
+        Login = 1,
+        Active = 2,
+        Dir = 3,
+        CreateDir = 4,
+        DeleteDir = 5,
+        FileList = 6,
+        DeleteFile = 7,
+        Upload = 8,
+        Data = 9,
+        Eof = 10,
+    }
+
 }

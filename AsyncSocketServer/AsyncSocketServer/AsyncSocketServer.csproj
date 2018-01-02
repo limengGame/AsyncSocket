@@ -51,9 +51,11 @@
     <Compile Include="AsyncSocketCore\AsyncSocketUserToken.cs" />
     <Compile Include="AsyncSocketCore\AsyncSocketUserTokenPool.cs" />
     <Compile Include="AsyncSocketCore\BaseSocketProtocol.cs" />
+    <Compile Include="AsyncSocketCore\DownloadSocketProtocol.cs" />
     <Compile Include="AsyncSocketCore\DynamicBufferManager.cs" />
     <Compile Include="AsyncSocketCore\IncomingDataParser.cs" />
     <Compile Include="AsyncSocketCore\OutgoingDataAssembler.cs" />
+    <Compile Include="AsyncSocketCore\UploadSocketProtocol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocolKey.cs" />

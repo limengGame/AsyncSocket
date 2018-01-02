@@ -28,7 +28,12 @@ namespace AsyncSocketServer
         {
             get { return m_AsyncSocketUserTokenList; }
         }
-        
+
+        private DownloadSocketProtocolMgr m_downloadSocketProtocolMgr;
+        public DownloadSocketProtocolMgr DownloadSocketProtocolMgr { get { return m_downloadSocketProtocolMgr; } }
+
+        private UploadSocketProtocolMgr m_uploadSocketProtocolMgr;
+        public UploadSocketProtocolMgr UploadSocketProtocolMgr { get { return m_uploadSocketProtocolMgr; } }
 
         public AsyncSocketServer(int numConnections)
         {
@@ -38,7 +43,9 @@ namespace AsyncSocketServer
             m_AsyncSocketUserTokenPool = new AsyncSocketUserTokenPool(m_numConnections);
             m_AsyncSocketUserTokenList = new AsyncSocketUserTokenList();
             m_maxNumberAcceptedClients = new Semaphore(numConnections, numConnections);
-            
+
+            m_downloadSocketProtocolMgr = new DownloadSocketProtocolMgr();
+            m_uploadSocketProtocolMgr = new UploadSocketProtocolMgr();
         }
 
         public void Init()
