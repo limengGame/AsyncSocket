@@ -31,7 +31,7 @@ namespace AsyncSocketServer
             string password = "";
             if (m_incomingDataParser.GetValue(ProtocolKey.UserName, ref userName) & m_incomingDataParser.GetValue(ProtocolKey.Password, ref password))
             {
-                if (password.Equals("admin", StringComparison.CurrentCultureIgnoreCase))
+                if (password.Equals(BasicFunc.MD5String("admin"), StringComparison.CurrentCultureIgnoreCase))
                 {
                     m_outgoingDataAssembler.AddSuccess();
                     m_userName = userName;

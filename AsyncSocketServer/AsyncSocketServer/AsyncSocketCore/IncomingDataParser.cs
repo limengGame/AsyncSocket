@@ -49,7 +49,7 @@ namespace AsyncSocketServer
                         if (tempStr.Length > 2)
                             return false;
                         if (tempStr[0].Equals(ProtocolKey.Command, StringComparison.CurrentCultureIgnoreCase))
-                            m_command = tempStr[0];
+                            m_command = tempStr[1];
                         else
                         {
                             m_names.Add(tempStr[0].ToLower());

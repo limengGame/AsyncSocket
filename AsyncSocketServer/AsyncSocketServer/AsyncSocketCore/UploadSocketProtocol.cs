@@ -81,45 +81,261 @@ namespace AsyncSocketServer
 
         public bool DoDir()
         {
-
-            return true;
+            string parentDir = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.ParentDir, ref parentDir))
+            {
+                if (parentDir == "")
+                    parentDir = Program.FileDirectory;
+                else
+                    parentDir = Path.Combine(Program.FileDirectory, parentDir);
+                if (Directory.Exists(parentDir))
+                {
+                    string[] subDirectorys = Directory.GetDirectories(parentDir, "*", SearchOption.TopDirectoryOnly);
+                    m_outgoingDataAssembler.AddSuccess();
+                    char[] directorySeparator = new char[1];
+                    directorySeparator[0] = Path.DirectorySeparatorChar;
+                    for (int i = 0; i < subDirectorys.Length; i++)
+                    {
+                        string[] directoryName = subDirectorys[i].Split(directorySeparator, StringSplitOptions.RemoveEmptyEntries);
+                        m_outgoingDataAssembler.AddValue(ProtocolKey.Item, directoryName[directoryName.Length - 1]);
+                    }
+                }
+                else
+                    m_outgoingDataAssembler.AddFailure(ProtocolCode.DirNotExist, "");
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
         }
 
         public bool DoCreateDir()
         {
-
+            string parentDir = "";
+            string dirName = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.ParentDir, ref parentDir) & m_incomingDataParser.GetValue(ProtocolKey.DirName, ref dirName))
+            {
+                if (parentDir == "")
+                    parentDir = Program.FileDirectory;
+                else
+                    parentDir = Path.Combine(Program.FileDirectory, parentDir);
+                if (Directory.Exists(parentDir))
+                {
+                    try
+                    {
+                        parentDir = Path.Combine(parentDir, dirName);
+                        Directory.CreateDirectory(parentDir);
+                        m_outgoingDataAssembler.AddSuccess();
+                    }
+                    catch (Exception E)
+                    {
+                        m_outgoingDataAssembler.AddFailure(ProtocolCode.CreateDirError, E.Message);
+                    }
+                }
+                else
+                    m_outgoingDataAssembler.AddFailure(ProtocolCode.DirNotExist, "");
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
             return true;
         }
         public bool DoDeleteDir()
         {
-
-            return true;
+            string parentDir = "";
+            string dirName = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.ParentDir, ref parentDir) & m_incomingDataParser.GetValue(ProtocolKey.DirName, ref dirName))
+            {
+                if (parentDir == "")
+                    parentDir = Program.FileDirectory;
+                else
+                    parentDir = Path.Combine(Program.FileDirectory, parentDir);
+                if (Directory.Exists(parentDir))
+                {
+                    try
+                    {
+                        parentDir = Path.Combine(parentDir, dirName);
+                        Directory.Delete(parentDir, true);
+                        m_outgoingDataAssembler.AddSuccess();
+                    }
+                    catch (Exception E)
+                    {
+                        m_outgoingDataAssembler.AddFailure(ProtocolCode.DeleteDirError, E.Message);
+                    }
+                }
+                else
+                    m_outgoingDataAssembler.AddFailure(ProtocolCode.DirNotExist, "");
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
         }
         public bool DoFileList()
         {
-
-            return true;
+            string dirName = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.DirName, ref dirName))
+            {
+                if (dirName == "")
+                    dirName = Program.FileDirectory;
+                else
+                    dirName = Path.Combine(Program.FileDirectory, dirName);
+                if (Directory.Exists(dirName))
+                {
+                    string[] files = Directory.GetFiles(dirName);
+                    m_outgoingDataAssembler.AddSuccess();
+                    Int64 fileSize = 0;
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        FileInfo fileInfo = new FileInfo(files[i]);
+                        fileSize = fileInfo.Length;
+                        m_outgoingDataAssembler.AddValue(ProtocolKey.Item, fileInfo.Name + ProtocolKey.TextSeperator + fileSize.ToString());
+                    }
+                }
+                else
+                    m_outgoingDataAssembler.AddFailure(ProtocolCode.DirNotExist, "");
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
         }
 
         public bool DoDeleteFile()
         {
-
-            return true;
+            string dirName = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.DirName, ref dirName))
+            {
+                if (dirName == "")
+                    dirName = Program.FileDirectory;
+                else
+                    dirName = Path.Combine(Program.FileDirectory, dirName);
+                string fileName = "";
+                if (Directory.Exists(dirName))
+                {
+                    try
+                    {
+                        List<string> files = m_incomingDataParser.GetValue(ProtocolKey.Item);
+                        for (int i = 0; i < files.Count; i++)
+                        {
+                            fileName = Path.Combine(dirName, files[i]);
+                            File.Delete(fileName);
+                        }
+                        m_outgoingDataAssembler.AddSuccess();
+                    }
+                    catch (Exception E)
+                    {
+                        m_outgoingDataAssembler.AddFailure(ProtocolCode.DeleteFileFailed, E.Message);
+                    }
+                }
+                else
+                    m_outgoingDataAssembler.AddFailure(ProtocolCode.DirNotExist, "");
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
         }
         public bool DoUpload()
         {
-
-            return true;
+            string dirName = "";
+            string fileName = "";
+            if (m_incomingDataParser.GetValue(ProtocolKey.DirName, ref dirName) & m_incomingDataParser.GetValue(ProtocolKey.FileName, ref fileName))
+            {
+                if (dirName == "")
+                    dirName = Program.FileDirectory;
+                else
+                    dirName = Path.Combine(Program.FileDirectory, dirName);
+                fileName = Path.Combine(dirName, fileName);
+                Program.Logger.Info("Start upload file: " + fileName);
+                if (m_fileStream != null) //关闭上次传输的文件
+                {
+                    m_fileStream.Close();
+                    m_fileStream = null;
+                    m_fileName = "";
+                }
+                if (File.Exists(fileName))
+                {
+                    if (!CheckFileInUse(fileName)) //检测文件是否正在使用中
+                    {
+                        m_fileName = fileName;
+                        m_fileStream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite);
+                        m_fileStream.Position = m_fileStream.Length; //文件移到末尾
+                        m_outgoingDataAssembler.AddSuccess();
+                        m_outgoingDataAssembler.AddValue(ProtocolKey.FileSize, m_fileStream.Length);
+                    }
+                    else
+                    {
+                        m_outgoingDataAssembler.AddFailure(ProtocolCode.FileIsInUse, "");
+                        Program.Logger.Error("Start upload file error, file is in use: " + fileName);
+                    }
+                }
+                else
+                {
+                    m_fileName = fileName;
+                    m_fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    m_fileStream.Position = m_fileStream.Length; //文件移到末尾
+                    m_outgoingDataAssembler.AddSuccess();
+                    m_outgoingDataAssembler.AddValue(ProtocolKey.FileSize, m_fileStream.Length);
+                }
+            }
+            else
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.ParameterError, "");
+            return DoSendResult();
         }
-        public bool DoData()
-        {
 
-            return true;
+        public bool CheckFileInUse(string fileName)
+        {
+            if (BasicFunc.IsFileInUse(fileName))
+            {
+                bool result = true;
+                lock (m_asyncSocketServer.UploadSocketProtocolMgr)
+                {
+                    UploadSocketProtocol uploadSocketProtocol = null;
+                    for (int i = 0; i < m_asyncSocketServer.UploadSocketProtocolMgr.Count(); i++)
+                    {
+                        uploadSocketProtocol = m_asyncSocketServer.UploadSocketProtocolMgr.ElementAt(i);
+                        if (fileName.Equals(uploadSocketProtocol.FileName, StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            lock (uploadSocketProtocol.AsyncSocketUserToken) //AsyncSocketUserToken有多个
+                            {
+                                m_asyncSocketServer.CloseClientSocket(uploadSocketProtocol.AsyncSocketUserToken);
+                            }
+                            result = false;
+                        }
+                    }
+                }
+                return result;
+            }
+            else
+                return false;
+        }
+
+        public bool DoData(byte[] buffer, int offset, int count)
+        {
+            if (m_fileStream == null)
+            {
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.NotOpenFile, "");
+                return false;
+            }
+            else
+            {
+                m_fileStream.Write(buffer, offset, count);
+                return true;
+                //m_outgoingDataAssembler.AddSuccess();
+                //m_outgoingDataAssembler.AddValue(ProtocolKey.Count, count); //返回读取个数
+            }
+            //return DoSendResult(); //接收数据不发回响应
         }
         public bool DoEof()
         {
-
-            return true;
+            if (m_fileStream == null)
+                m_outgoingDataAssembler.AddFailure(ProtocolCode.NotOpenFile, "");
+            else
+            {
+                Program.Logger.Info("End upload file: " + m_fileName);
+                m_fileStream.Close();
+                m_fileStream = null;
+                m_fileName = "";
+                m_outgoingDataAssembler.AddSuccess();
+            }
+            return DoSendResult();
         }
 
         public bool CheckLogined(UploadSocketCommand command)

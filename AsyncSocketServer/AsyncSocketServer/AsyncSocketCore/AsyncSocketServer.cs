@@ -19,7 +19,7 @@ namespace AsyncSocketServer
         private int m_socketTimeOutMS;
         public int SocketTimeOutMS {
             get { return this.m_socketTimeOutMS; }
-            set { SocketTimeOutMS = value; }
+            set { m_socketTimeOutMS = value; }
         }
 
         private AsyncSocketUserTokenPool m_AsyncSocketUserTokenPool;
@@ -35,6 +35,9 @@ namespace AsyncSocketServer
         private UploadSocketProtocolMgr m_uploadSocketProtocolMgr;
         public UploadSocketProtocolMgr UploadSocketProtocolMgr { get { return m_uploadSocketProtocolMgr; } }
 
+        private LogOutputSocketProtocolMgr m_logOutputSocketProtocolMgr;
+        public LogOutputSocketProtocolMgr LogOutputSocketProtocolMgr { get { return m_logOutputSocketProtocolMgr; } }
+
         public AsyncSocketServer(int numConnections)
         {
             m_numConnections = numConnections;
@@ -46,6 +49,7 @@ namespace AsyncSocketServer
 
             m_downloadSocketProtocolMgr = new DownloadSocketProtocolMgr();
             m_uploadSocketProtocolMgr = new UploadSocketProtocolMgr();
+            m_logOutputSocketProtocolMgr = new LogOutputSocketProtocolMgr();
         }
 
         public void Init()
@@ -140,7 +144,7 @@ namespace AsyncSocketServer
 
             try
             {
-                bool willRaiseEvent = userToken.ConnectSocket.ReceiveAsync(asyncEventArgs);
+                bool willRaiseEvent = userToken.ConnectSocket.ReceiveAsync(userToken.ReceiveEventArgs);
                 if (!willRaiseEvent)
                 {
                     lock (userToken)
@@ -168,7 +172,7 @@ namespace AsyncSocketServer
             if (userToken.ReceiveEventArgs.BytesTransferred > 0 && userToken.ReceiveEventArgs.SocketError == SocketError.Success)
             {
                 int offset = userToken.ReceiveEventArgs.Offset;
-                int count = userToken.ReceiveEventArgs.Count;
+                int count = userToken.ReceiveEventArgs.BytesTransferred;
                 //存在socket对象，并且没有绑定协议对象，则进行协议对象绑定
                 if (userToken.AsyncSocketInvokeElement == null & userToken.ConnectSocket != null)
                 {
@@ -218,7 +222,17 @@ namespace AsyncSocketServer
 
         private void BuildingSocketInvokeElement(AsyncSocketUserToken userToken)
         {
+            byte flag = userToken.ReceiveEventArgs.Buffer[userToken.ReceiveEventArgs.Offset];
+            if (flag == (byte)ProtocolFlag.Upload)
+                userToken.AsyncSocketInvokeElement = new UploadSocketProtocol(this, userToken);
+            else if (flag == (byte)ProtocolFlag.Download)
+                userToken.AsyncSocketInvokeElement = new DownloadSocketProtocol(this, userToken);
 
+            if (userToken.AsyncSocketInvokeElement != null)
+            {
+                Program.Logger.InfoFormat("Building socket invoke element {0}.Local Address: {1}, Remote Address: {2}",
+                    userToken.AsyncSocketInvokeElement, userToken.ConnectSocket.LocalEndPoint, userToken.ConnectSocket.RemoteEndPoint);
+            }
         }
 
         private bool ProcessSend(SocketAsyncEventArgs sendAsyncArgs)

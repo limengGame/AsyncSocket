@@ -1,0 +1,10 @@
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\AsyncSocketServer.exe.config
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\AsyncSocketServer.exe
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\AsyncSocketServer.pdb
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\log4net.dll
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\log4net.xml
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\obj\Debug\AsyncSocketServer.csprojResolveAssemblyReference.cache
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\obj\Debug\AsyncSocketServer.csproj.CoreCompileInputs.cache
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\obj\Debug\AsyncSocketServer.exe
+E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\obj\Debug\AsyncSocketServer.pdb

@@ -22,7 +22,7 @@ namespace AsyncSocketServer
             set { m_netByteOrder = value; }
         }
 
-        private bool m_sendAsync;
+        protected bool m_sendAsync;
 
         protected IncomingDataParser m_incomingDataParser;
         protected OutgoingDataAssembler m_outgoingDataAssembler;
@@ -181,6 +181,28 @@ namespace AsyncSocketServer
                 int sendCount = 0;
                 result = m_asyncSocketServer.SendAsyncEvent(m_asyncSocketUserToken.ConnectSocket, m_asyncSocketUserToken.SendEventArgs,
                     asyncSendBufferManager.DynamicBufferManager.Buffer, sendOffset, sendCount);
+            }
+            return result;
+        }
+
+        public bool DoSendBuffer(byte[] buffer, int offset, int count) //不是按包格式下发一个内存块，用于日志这类下发协议
+        {
+            AsyncSendBufferManager asyncSendBufferManager = m_asyncSocketUserToken.SendBuffer;
+            asyncSendBufferManager.StartPacket();
+            asyncSendBufferManager.DynamicBufferManager.WriteBuffer(buffer, offset, count);
+            asyncSendBufferManager.EndPacket();
+
+            bool result = true;
+            if (!m_sendAsync)
+            {
+                int packetOffset = 0;
+                int packetCount = 0;
+                if (asyncSendBufferManager.GetFirstPacket(ref packetOffset, ref packetCount))
+                {
+                    m_sendAsync = true;
+                    result = m_asyncSocketServer.SendAsyncEvent(m_asyncSocketUserToken.ConnectSocket, m_asyncSocketUserToken.SendEventArgs,
+                        asyncSendBufferManager.DynamicBufferManager.Buffer, packetOffset, packetCount);
+                }
             }
             return result;
         }

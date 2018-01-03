@@ -13,6 +13,18 @@ namespace AsyncSocketServer
         public static int SocketTimeOutMS = 60 * 1000; //超时时间为60S
     }
 
+    public enum ProtocolFlag
+    {
+        None = 0,
+        SQL = 1, //SQL查询协议
+        Upload = 2, //上传协议
+        Download = 3, //下载协议
+        RemoteStream = 4, //远程文件流协议
+        Throughput = 5, //吞吐量测试协议
+        Control = 8,
+        LogOutput = 9,
+    }
+
     public class ProtocolKey
     {
         public static string Request = "Request";
