@@ -1,0 +1,128 @@
+2018-01-04 10:32:45,551 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 10:32:58,245 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:46677
+2018-01-04 10:32:58,250 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:46677
+2018-01-04 10:32:58,266 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 10:32:58,274 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 10:33:58,767 [4] INFO : admin login success
+2018-01-04 10:34:08,777 [4] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:34:18,793 [4] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:37:02,890 [4] INFO : Client connection disconnected. Local Address: 127.0.0.1:9999 Remote Address: 127.0.0.1:46677
+2018-01-04 10:37:29,948 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 10:37:35,601 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:46737
+2018-01-04 10:37:35,609 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:46737
+2018-01-04 10:37:35,624 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 10:37:35,632 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 10:38:36,163 [6] INFO : admin login success
+2018-01-04 10:38:46,174 [4] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:38:56,187 [4] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:39:14,616 [4] INFO : Client connection disconnected. Local Address: 127.0.0.1:9999 Remote Address: 127.0.0.1:46737
+2018-01-04 10:39:20,437 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 10:39:32,514 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:46753
+2018-01-04 10:39:32,520 [6] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:46753
+2018-01-04 10:39:32,545 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 10:39:32,552 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 10:41:26,402 [5] INFO : admin login success
+2018-01-04 10:42:24,692 [7] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:44:39,902 [9] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 10:45:42,300 [13] INFO : Client connection disconnected. Local Address: 127.0.0.1:9999 Remote Address: 127.0.0.1:46753
+2018-01-04 10:56:23,463 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:07:12,902 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:07:20,844 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47350
+2018-01-04 11:07:20,854 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47350
+2018-01-04 11:07:20,873 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:07:20,881 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:13:14,705 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:13:22,224 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47437
+2018-01-04 11:13:22,238 [6] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47437
+2018-01-04 11:13:22,253 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:13:22,259 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:15:44,940 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:15:50,014 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47473
+2018-01-04 11:15:50,019 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47473
+2018-01-04 11:15:50,039 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:15:50,046 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:15:58,815 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:16:02,375 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47475
+2018-01-04 11:16:02,387 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47475
+2018-01-04 11:16:02,401 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:16:02,407 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:16:57,478 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:17:00,582 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47489
+2018-01-04 11:17:00,591 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47489
+2018-01-04 11:17:00,609 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:17:00,616 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:17:31,314 [5] INFO : admin login success
+2018-01-04 11:17:40,215 [5] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:17:40,253 [5] ERROR: IOCompleted client System.Net.Sockets.Socket, error message 目标数组的长度不够。请检查 destIndex 和长度以及数组的下限。
+2018-01-04 11:17:40,257 [5] ERROR:    在 System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   在 System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
+   在 AsyncSocketServer.DynamicBufferManager.WriteBuffer(Byte[] buffer, Int32 offset, Int32 count) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\DynamicBufferManager.cs:行号 68
+   在 AsyncSocketServer.AsyncSocketInvokeElement.ProcessReceive(Byte[] buffer, Int32 offset, Int32 count) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketInvokeElement.cs:行号 61
+   在 AsyncSocketServer.AsyncSocketServer.ProcessReceive(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 193
+   在 AsyncSocketServer.AsyncSocketServer.IO_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 118
+2018-01-04 11:17:51,882 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:17:55,868 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47496
+2018-01-04 11:17:55,878 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47496
+2018-01-04 11:17:55,896 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:17:55,904 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:17:55,905 [6] INFO : admin login success
+2018-01-04 11:17:55,914 [6] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:17:55,924 [3] ERROR: IOCompleted client System.Net.Sockets.Socket, error message 目标数组的长度不够。请检查 destIndex 和长度以及数组的下限。
+2018-01-04 11:17:55,926 [3] ERROR:    在 System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   在 System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length)
+   在 AsyncSocketServer.DynamicBufferManager.WriteBuffer(Byte[] buffer, Int32 offset, Int32 count) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\DynamicBufferManager.cs:行号 68
+   在 AsyncSocketServer.AsyncSocketInvokeElement.ProcessReceive(Byte[] buffer, Int32 offset, Int32 count) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketInvokeElement.cs:行号 61
+   在 AsyncSocketServer.AsyncSocketServer.ProcessReceive(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 193
+   在 AsyncSocketServer.AsyncSocketServer.IO_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 118
+2018-01-04 11:24:11,232 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:24:15,402 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47571
+2018-01-04 11:24:15,415 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47571
+2018-01-04 11:24:29,872 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:24:32,219 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:24:38,689 [3] INFO : admin login success
+2018-01-04 11:24:38,696 [6] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:26:36,771 [6] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:26:36,796 [4] INFO : End upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:27:21,152 [7] INFO : Client connection disconnected. Local Address: 127.0.0.1:9999 Remote Address: 127.0.0.1:47571
+2018-01-04 11:28:38,202 [1] INFO : Start listen endPoint: 0.0.0.0:9999
+2018-01-04 11:28:42,130 [3] INFO : Client connection accepted, LocalEndPoint:127.0.0.1:9999, RemoteEndPoint:127.0.0.1:47624
+2018-01-04 11:28:42,136 [5] INFO : Building socket invoke element AsyncSocketServer.UploadSocketProtocol.Local Address: 127.0.0.1:9999, Remote Address: 127.0.0.1:47624
+2018-01-04 11:28:42,158 [3] ERROR: Accept client System.Net.Sockets.Socket, error message 未将对象引用设置到对象的实例。
+2018-01-04 11:28:42,160 [5] INFO : admin login success
+2018-01-04 11:28:42,162 [6] INFO : Start upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:28:42,166 [3] ERROR:    在 System.Net.Sockets.Socket.AcceptAsync(SocketAsyncEventArgs e)
+   在 AsyncSocketServer.AsyncSocketServer.StartAccept(SocketAsyncEventArgs acceptEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 87
+   在 AsyncSocketServer.AsyncSocketServer.ProcessAccept(SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 162
+   在 AsyncSocketServer.AsyncSocketServer.AcceptEventArg_Completed(Object sender, SocketAsyncEventArgs asyncEventArgs) 位置 E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\AsyncSocketCore\AsyncSocketServer.cs:行号 99
+2018-01-04 11:28:42,167 [6] INFO : End upload file: E:\VsProject\IOCP_Demo\AsyncSocketServer\AsyncSocketServer\bin\Debug\Files\UploadTest.exe
+2018-01-04 11:28:59,752 [3] INFO : Client connection disconnected. Local Address: 127.0.0.1:9999 Remote Address: 127.0.0.1:47624

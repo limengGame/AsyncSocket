@@ -70,7 +70,7 @@ namespace AsyncSocketServer
                 if ((packetLength > 10 * 1024 * 1024) | (receiveBuffer.DataCount > 10 * 1024 * 1024))
                     return false;
 
-                if ((receiveBuffer.DataCount - sizeof(int)) > packetLength)
+                if ((receiveBuffer.DataCount - sizeof(int)) >= packetLength)
                 {
                     //解析数据
                     result = ProcessPacket(receiveBuffer.Buffer, sizeof(int), packetLength);
